@@ -38,6 +38,16 @@ describe('signature', function () {
             var res = sig.createSignature({
                 ccc: 'ccc',
                 bbb: 'bbb',
+                aaa: 'aaa'
+            }, 'hogehoge');
+
+            assert.equal(res, '2fbfe87e54cc53036463633ef29beeaa4d740e435af586798917826d9e525112');
+        });
+
+        it('ignores keys with prefox "sop_"', function () {
+            var res = sig.createSignature({
+                ccc: 'ccc',
+                bbb: 'bbb',
                 aaa: 'aaa',
                 sop_hoge: 'hoge'
             }, 'hogehoge');
